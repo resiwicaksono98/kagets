@@ -4,6 +4,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react/cjs/react.development'
 import { useHistory, useParams } from 'react-router'
 import './image.scss'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 
 
@@ -26,15 +29,18 @@ export default function Image() {
     const handleChange = e => {
         setPicturePath(e.target.files[0])
         setImage(URL.createObjectURL(e.target.files[0]))
-
     }
 
-    const previewImg = e => {
-        <div className="toggle">
+    const notify = () => toast('Yaps, Foto Profile Sudah Di Update', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
 
-            <h1>   INI SSS</h1>
-        </div>
-    }
+    });
 
     const submitData = e => {
         e.preventDefault()
@@ -44,7 +50,7 @@ export default function Image() {
             .then(res => {
                 console.log('response', res)
                 history.push(`/profile/${me.name}`)
-
+                notify()
             }).catch(e => {
                 console.error('Failure', e);
             })

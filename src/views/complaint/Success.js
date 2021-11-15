@@ -1,11 +1,15 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useParams } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 import { useEffect } from 'react/cjs/react.development'
 import App from '../../layouts/App'
 import LogoSuccess from '../../assets/success.jpg'
+import { useRecoilState } from 'recoil'
+import { authenticatedUser } from '../../store'
 
 export default function Success() {
+    const [auth, setAuth] = useRecoilState(authenticatedUser)
+    const history = useHistory()
     const { slug } = useParams()
     const [complaint, setComplaint] = useState([])
     const [name, setName] = useState('')
@@ -16,6 +20,9 @@ export default function Success() {
             let { data } = await axios.get(`api/complaint/${slug}`)
             setComplaint(data.data)
             setName(data.data.user.name);
+            setInterval(() => {
+                history.push(`/dashboard/${auth.user.id}`)
+            }, 8000) 
         }
 
         getComplaint()
