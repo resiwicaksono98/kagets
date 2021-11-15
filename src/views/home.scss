@@ -1,0 +1,42 @@
+.text-home {
+    height: 105%;
+    border: none;
+    padding-bottom: 100px;
+    border-radius: 15px;
+
+    .title {
+        margin-top: 80px;
+        color: white;
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+        background-image: linear-gradient(to right, #1B3A2F, #46A382);
+        border-radius: 30px;
+
+        h2 {
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+    }
+
+    .content {
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .btn-keluhan {
+        font-size: 22px;
+        height: 50px;
+        font-family: 'Roboto', sans-serif;
+        letter-spacing: 1px;
+        width: 70%;
+        margin-left: 11vh;
+        margin-top: 10%;
+    }
+
+}
+
+
+img {
+    border-radius: 50px;
+}

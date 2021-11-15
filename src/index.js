@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import axios from 'axios'
+import { RecoilRoot } from 'recoil';
+
+axios.defaults.baseURL = "http://backend-kagets.test"
+axios.defaults.withCredentials = true
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root')
 );
